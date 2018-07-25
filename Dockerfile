@@ -1,4 +1,4 @@
-FROM nvidia/cuda:8.0-cudnn7-runtime-ubuntu16.04
+FROM nvidia/cuda:9.0-cudnn7-runtime-ubuntu16.04
 # Set anaconda path
 ENV ANACONDA /opt/anaconda
 ENV PATH $ANACONDA/bin:$PATH
@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN wget https://repo.continuum.io/archive/Anaconda2-5.0.1-Linux-x86_64.sh -P /tmp
 RUN bash /tmp/Anaconda2-5.0.1-Linux-x86_64.sh -b -p $ANACONDA
 RUN rm /tmp/Anaconda2-5.0.1-Linux-x86_64.sh -rf
-RUN conda install -y pytorch=0.3 torchvision cuda80 -c pytorch
+RUN conda install -y pytorch=0.4 torchvision cuda90 -c pytorch
 RUN conda install -y -c anaconda pip
 RUN conda install -y -c anaconda pyyaml
 RUN pip install tensorboard tensorboardX
